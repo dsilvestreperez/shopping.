@@ -1,0 +1,35 @@
+#store system
+
+class Product:
+    def __init__(self, ProductID, Productname, Price):
+        self.Productid = ProductID
+        self.Productname = Productname
+        self.price = Price
+    def __str__(self):
+        return (f' (self.ProductID) -- (self.ProductName) -- (self.Price)')        
+        
+class ShoppingCart:
+    def __init__(self):
+        self.ProductList=[]
+    def AddProduct(self,Product): 
+        self.ProductList.append(Product) 
+    def RemoveProduct(self,ProductID):
+         for s in self.ProductList:
+             if (s.ProductID ==ProductID):
+                 self.ProductList.remove(s)
+    def ListProduct(self):
+        for x in self.ProductList:
+            print(x)
+            
+            
+cart = ShoppingCart()
+
+cart.AddProduct(Product(1,"Name",2.3))                                      
+cart.AddProduct(Product(2,"Name",2.3))        
+cart.AddProduct(Product(3,"Name",2.3))    
+print("adter adding")
+cart.ListProduct()
+
+cart.RemoveProduct()
+print("After removed")
+cart.ListProduct()
